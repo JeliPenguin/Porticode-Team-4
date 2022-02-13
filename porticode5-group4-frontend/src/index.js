@@ -33,8 +33,7 @@ ReactDOM.render(
       <Route path="/home" exact component={Home} />
       <Route path="/event/:eventID" component={Event} />
       <Route path="/timetable" component={TimeTable} />
-      <Route path="/" exact component={Index} />
-      <Redirect from="*" to="/" />
+      <Redirect from="*" to="/home" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
