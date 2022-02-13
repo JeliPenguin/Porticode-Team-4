@@ -1,6 +1,6 @@
 # Deployment
 
-Install dependencies using npm i
+Installing dependencies using npm i
 
 startup using npm start
 
