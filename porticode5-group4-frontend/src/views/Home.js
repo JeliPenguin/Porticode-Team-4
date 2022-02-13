@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import MapComponent from "components/Maps/MapComponent";
-import TimetableComponent from "components/Timetable/timetable-list";
+import TimetableComponent from "../components/TimeTable/timetable-list";
 
 export default function Home() {
     return (
