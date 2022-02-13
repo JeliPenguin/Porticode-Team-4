@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import axios from 'axios'
+import { useState } from "react";
+
 import Navbar from "components/Navbars/AuthNavbar.js";
 import { useParams } from "react-router";
 
@@ -7,27 +7,6 @@ const Event = () => {
     const [attenders, setAttenders] = useState([{ full_name: "John" }, { full_name: "John" }, { full_name: "John" }])
     const { eventID } = useParams()
     const [event, setEvent] = useState({})
-
-    const fetchEvent = async () => {
-        const res = await axios.get(`/events/${eventID}`, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        setEvent(res.data)
-    }
-
-    const fetchAttenders = async () => {
-        const res = await axios.post(`/event/${eventID}/users-attending`)
-        console.log(res.data)
-        setAttenders(res.data)
-    }
-
-    useEffect(() => {
-        fetchEvent()
-        fetchAttenders()
-    }, [])
-
     return (
         <>
             <Navbar transparent />
@@ -71,23 +50,25 @@ const Event = () => {
                             <div className="px-6">
                                 <div className="text-center mt-12">
                                     <h3 className="text-4xl font-semibold leading-normal text-white mb-2">
-                                        {event.name}
+                                        {`Maths Lecture`}
                                     </h3>
-                                    <h4>{`Event Code: ${event.id}`}</h4>
+                                    <h4>{`Event Code: ${eventID}`}</h4>
 
-                                    <p className="text-white">{`${event.start_time} - ${event.end_time}`}</p>
+                                    <p className="text-white">21:00 - 22:00</p>
                                 </div>
                                 <div className="mt-10 py-10 border-t border-blueGray-200 grid grid-col-3">
-                                    <div className="text-sm leading-normal mt-0 mb-2 text-white font-bold uppercase">
-                                        <i className="fas fa-map-marker-alt mr-2 text-lg text-white"></i>{" "}
-                                        {event.location}
+                                    <div className="font-bold border-black w-20 h-20 rounded-full bg-white text-center pt-2 text-2xl mb-2">
+                                        Prof. Porticode
                                     </div>
-                                    <ol className="text-white">
-                                        Attenders:
+                                    <div className="leading-normal mt-0 mb-2 text-black font-bold uppercase border-black w-20 h-20 rounded-full bg-white text-center pt-2 text-2xl">
+                                        <i className="fas fa-map-marker-alt mr-2 text-lg text-black"></i>{" "}
+                                        Location
+                                    </div>
+                                    <div className="font-boldborder-black w-20 h-full rounded-full bg-white text-center pt-2 text-2xl">
                                         {attenders.map(attender => (
-                                            <li className="text-black">{attender.full_name}</li>
+                                            <p>{attender.full_name}</p>
                                         ))}
-                                    </ol>
+                                    </div>
                                 </div>
                             </div>
                         </div>

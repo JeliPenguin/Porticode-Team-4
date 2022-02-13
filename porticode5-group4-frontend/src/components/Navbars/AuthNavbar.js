@@ -46,12 +46,12 @@ export default function Navbar(props) {
               </button>
             </li>
             <li className="flex items-center">
-              <Link to="/timetable"><button
+              <button
                 className="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                 type="button"
               >
                 <i className="fas fa-sign-out"></i> Manage Timetable
-              </button></Link>
+              </button>
             </li>
           </ul>
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
